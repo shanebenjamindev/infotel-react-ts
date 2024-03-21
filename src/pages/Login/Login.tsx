@@ -5,11 +5,13 @@ export default function Login() {
         <div className=" col-lg-8 d-flex align-items-center gradient-custom-2">
           <div className="text-white px-3 py-4 p-md-5 mx-md-4">
             <h4 className="mb-4">We are more than just a company</h4>
-            <p className="small mb-0">
+            <p className="">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
               nisi ut aliquip ex ea commodo consequat.
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam et sed sequi vel debitis quam asperiores, saepe nostrum eum totam eveniet, a deleniti fuga, temporibus omnis dignissimos quas facere tempora.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima vel esse mollitia nam ex dolorum, consequuntur labore rem ab ipsum molestias impedit voluptatem quos corporis distinctio quam eaque sed qui.
             </p>
           </div>
         </div>
@@ -48,7 +50,7 @@ export default function Login() {
               </div>
               <div className="d-flex align-items-center justify-content-center pb-4">
                 <p className="mb-0 me-2">Don't have an account?</p>
-                <button type="button" className="btn border ml-auto">
+                <button type="button" className="btn btn-outline-dark border ml-auto">
                   Create new
                 </button>
               </div>

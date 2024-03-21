@@ -1,0 +1,25 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.item {
+  .title {
+    font-size: 12px;
+    font-weight: 200;
+    color: grey;
+  }
+
+  .listItem {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    color: white;
+    gap: 10px;
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+}

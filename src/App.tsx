@@ -8,13 +8,17 @@ import Login from "./pages/Login/Login";
 import Sidebar from "./components/Sidebar/Sidebar";
 import "./assets/css/app.css";
 import "./assets/scss/global.scss";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import ActualData from "./pages/ActualData/ActualData";
+import ResercationForecast from "./pages/ReservationForecast/ReservationForecast";
+import PeriodDetail from "./pages/PeriodDetail/PeriodDetail";
 
 function App() {
   const LayoutHome = () => {
     return (
       <div className="main bg">
         <Header />
-        <div className="">
+        <div className="content">
           <Outlet />
         </div>
         <Footer />
@@ -26,9 +30,13 @@ function App() {
     return (
       <div className="main">
         <Header />
-        <div className="d-flex">
-          <Sidebar />
-          <Outlet />
+        <div className="d-flex" style={{ height: "93dvh" }}>
+          <div className="col-2 bg-dark">
+            <Sidebar />
+          </div>
+          <div className="col-10 p-2">
+            <Outlet />
+          </div>
         </div>
         <Footer />
       </div>
@@ -49,7 +57,12 @@ function App() {
     {
       path: "admin",
       element: <LayoutAdmin />,
-      children: [{ path: "", element: <Admin /> }, {}],
+      children: [
+        { path: "", element: <Dashboard /> },
+        { path: "actualData", element: <ActualData /> },
+        { path: "reservationForecast", element: <ResercationForecast /> },
+        { path: "periodDetail", element: <PeriodDetail /> },
+      ],
     },
   ]);
   return (

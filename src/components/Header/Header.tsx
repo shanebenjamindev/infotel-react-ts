@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <Link to="/" className="navbar-brand">
         Infotel
       </Link>
@@ -30,9 +30,10 @@ export default function Header() {
         </ul>
       </div>
       <div className="d-flex align-items-center">
-        User's name
-        <BellOutlined />
-        <UserOutlined />
+        <div>User's name</div>
+        <div className="notification">
+          <img src="/notifications.svg" />
+        </div>
       </div>
     </nav>
   );
