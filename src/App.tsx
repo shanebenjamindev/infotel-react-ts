@@ -10,7 +10,7 @@ import "./assets/css/app.css";
 import "./assets/scss/global.scss";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import ActualData from "./pages/ActualData/ActualData";
-import ResercationForecast from "./pages/ReservationForecast/LineChart";
+import ResercationForecast from "./pages/ReservationForecast/ReservationForecast";
 import PeriodDetail from "./pages/PeriodDetail/PeriodDetail";
 
 function App() {
