@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/graphql"],
+  "include": ["src", "src/graphql", "ReservationForecast.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
