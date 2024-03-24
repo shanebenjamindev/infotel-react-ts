@@ -1,4 +1,10 @@
-const ErrorPage = ({ errorCode, errorMessage }) => {
+const ErrorPage = ({
+  errorCode,
+  errorMessage,
+}: {
+  errorCode: number;
+  errorMessage: string;
+}) => {
   return (
     <section className="text-center">
       <h1>Error {errorCode}</h1>

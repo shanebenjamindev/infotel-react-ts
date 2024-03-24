@@ -156,7 +156,7 @@ const ReservationForecast: React.FC = () => {
       .on("mouseout", function () {
         tooltip.style("opacity", 0);
       })
-      .on("mousemove", function (event, d) {
+      .on("mousemove", function (event) {
         const [xMouse, yMouse] = d3.pointer(event);
 
         const date = x.invert(xMouse);

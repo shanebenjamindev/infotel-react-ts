@@ -1,15 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
 import { sidebar } from "../../data";
 import "./sidebar.scss";
 
 export default function Sidebar() {
   const location = useLocation();
-  const [selectedItem, setSelectedItem] = useState("");
-
-  const handleItemClick = (itemId: any) => {
-    setSelectedItem(itemId);
-  };
 
   return (
     <section className="sidebar">
@@ -23,7 +17,6 @@ export default function Sidebar() {
               className={`listItem ${
                 location.pathname === listItem.url ? "active" : ""
               }`}
-              onClick={() => handleItemClick(item.id)}
             >
               <img src={`${listItem.icon}`} alt={listItem.title} />
               <span>{listItem.title}</span>

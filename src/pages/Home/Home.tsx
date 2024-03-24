@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./home.scss"; // Import your custom CSS file
 
 const Home = () => {
   const [location, setLocation] = useState("");
   const [checkInDate, setCheckInDate] = useState("");
   const [checkOutDate, setCheckOutDate] = useState("");
-  const [guests, setGuests] = useState(1); // Default guests to 1
+  const [guests, setGuests] = useState<number>(0);
 
-  const handleSearch = (event) => {
+  const handleSearch = (event: any) => {
     event.preventDefault();
     console.log(
       "Performing search with location:",
@@ -65,7 +65,7 @@ const Home = () => {
                 placeholder="Guests"
                 min="1"
                 value={guests}
-                onChange={(e) => setGuests(e.target.value)}
+                onChange={(e) => setGuests(parseInt(e.target.value, 10))}
               />
             </div>
           </div>

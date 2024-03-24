@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./login.scss";
 import { listAccount } from "../../data";
 import { useNavigate } from "react-router-dom";
@@ -8,10 +8,6 @@ interface Account {
   email: string;
   role: string;
   fullName: string;
-}
-interface AccountList {
-  admin: Account;
-  users: Account[];
 }
 
 function login(username: string, password: string): Account | null {

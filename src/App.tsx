@@ -1,11 +1,8 @@
-import React from "react";
 import {
   createBrowserRouter,
   Link,
   Outlet,
   RouterProvider,
-  Route,
-  Routes,
 } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import { Suspense } from "react";
