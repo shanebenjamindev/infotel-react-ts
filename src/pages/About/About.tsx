@@ -3,8 +3,8 @@ import "./about.scss"; // Import the CSS file for custom styles
 
 const About = () => {
   return (
-    <>
-      <section className="bg2 m-auto about-container d-md-flex">
+    <div className="bg2">
+      <section className=" px-5 about-container d-md-flex">
         <div className="about-card">
           <h2>Features</h2>
           <ul>
@@ -65,7 +65,7 @@ const About = () => {
           </p>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

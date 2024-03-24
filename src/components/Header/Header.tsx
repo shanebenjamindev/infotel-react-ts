@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { getUser, logoutUser } from "../../hooks/userHook";
-
+import "./header.scss";
 export default function Header() {
   const user = getUser();
   const navigate = useNavigate();
@@ -8,7 +8,7 @@ export default function Header() {
     logoutUser(navigate);
   };
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-white">
+    <nav className="navbar fixed-top navbar-expand-lg navbar-light">
       <Link to="/" className="navbar-brand">
         Infotel
       </Link>
@@ -39,13 +39,6 @@ export default function Header() {
               About
             </Link>
           </li>
-          <li className="nav-item">
-            {user && user.role === "admin" ? (
-              <Link to="/admin" className="nav-link">
-                Go to Admin
-              </Link>
-            ) : null}
-          </li>
         </ul>
         <div
           className="d-flex ml-auto align-items-center"
@@ -57,6 +50,11 @@ export default function Header() {
               <button onClick={handleLogout} className="btn btn-outline-danger">
                 Logout
               </button>
+              {user && user.role === "admin" ? (
+                <Link to="/admin" className="btn btn-dark">
+                  Go to Admin
+                </Link>
+              ) : null}
             </div>
           ) : (
             <div>

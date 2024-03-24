@@ -70,7 +70,7 @@ export default function Login() {
   };
 
   return (
-    <section className=" p-5 bg content">
+    <section className="bg content px-5">
       <div className="overlay__Inner"></div>
       <div className="d-md-flex">
         <div className="col-lg-8 d-flex align-items-center gradient-custom-2">

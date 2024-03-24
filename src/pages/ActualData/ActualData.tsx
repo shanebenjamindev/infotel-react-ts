@@ -126,14 +126,19 @@ export default function ActualData() {
   const dataWithGrandTotal = [...dataSource, grandTotal];
 
   return (
-    <section>
-      <h1>Actual Data</h1>
-      <Table
-        columns={columns}
-        dataSource={dataWithGrandTotal}
-        rowKey="property"
-        scroll={{ x: screen.availHeight}} // Enable horizontal scrolling and set a fixed height for vertical scrolling
-      />
-    </section>
+    <div
+      className="d-flex flex-column align-items-center justify-content-center"
+      style={{ height: "100%" }}
+    >
+      <div>
+        <h1>Actual Data</h1>
+        <Table
+          columns={columns}
+          dataSource={dataWithGrandTotal}
+          rowKey="property"
+          scroll={{ x: screen.availHeight }}
+        />
+      </div>
+    </div>
   );
 }

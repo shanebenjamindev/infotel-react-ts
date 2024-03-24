@@ -14,8 +14,7 @@ import Footer from "./components/Footer/Footer";
 import Login from "./pages/Login/Login";
 import Sidebar from "./components/Sidebar/Sidebar";
 import ErrorPage from "./pages/Error/Error";
-import "./assets/scss/global.scss";
-import "./app.scss";
+import "./styles/global.scss";
 import Dashboard from "./pages/Admin/Dashboard/Dashboard";
 import ActualData from "./pages/ActualData/ActualData";
 import ReservationForecast from "./pages/Admin/ReservationForecast/ReservationForecast";
@@ -44,8 +43,8 @@ function App() {
         <div className="main">
           <Header />
           {user?.role === "admin" ? (
-            <div className="d-md-flex" style={{ height: "100%" }}>
-              <div className="col-md-2">
+            <div className="content d-md-flex">
+              <div className="col-md-2 pl-0 " style={{ height: "100%" }}>
                 <Sidebar />
               </div>
               <div className="col-md-10 p-2">
@@ -85,7 +84,10 @@ function App() {
         { path: "", element: <Dashboard /> },
         { path: "actualData", element: <ActualData /> },
         { path: "reservationForecast", element: <ReservationForecast /> },
-        { path: "periodDetail", element: <PeriodDetail /> },
+        {
+          path: "*",
+          element: <ErrorPage errorCode={404} errorMessage="Page not found" />,
+        },
       ],
     },
     {

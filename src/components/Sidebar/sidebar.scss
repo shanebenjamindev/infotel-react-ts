@@ -1,20 +1,27 @@
-.item {
-  .title {
-    font-size: 12px;
-    font-weight: 200;
-    color: grey;
-  }
+.sidebar {
+  background-color: var(--sidebar-bg-color);
+    .item {
+    .title {
+      padding: 10px;
+      font-size: 12px;
+      font-weight: 200;
+      color: grey;
+    }
 
-  .listItem {
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    color: black;
-    gap: 10px;
+    .listItem {
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      color: var(--light-text-color);
+      gap: 10px;
 
-    &:hover {
-      background-color: black;
-      color: white;
+      &:hover {
+        background-color: var(--sidebar-active-color);
+      }
+
+      &.active {
+        background-color: var(--sidebar-active-color);
+      }
     }
   }
 }
