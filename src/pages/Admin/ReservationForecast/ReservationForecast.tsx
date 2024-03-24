@@ -9,7 +9,7 @@ const ReservationForecast: React.FC = () => {
   const [selectedPeriod, setSelectedPeriod] = useState<string>("6-months");
   const [chartData, setChartData] = useState<any[]>([]);
   const margin = { top: 20, right: 0, bottom: 30, left: 50 };
-  const width = 800 - margin.left - margin.right;
+  const width = 1500 - margin.left - margin.right;
   const height = 400 - margin.top - margin.bottom;
 
   const handlePeriodChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -64,7 +64,6 @@ const ReservationForecast: React.FC = () => {
   }, [chartData]);
 
   const drawChart = () => {
-    const dateFormat = d3.timeFormat("%d-%m-%Y");
     const svg = d3.select(svgRef.current);
     const viewBoxWidth = width + margin.left + margin.right;
     const viewBoxHeight = height + margin.top + margin.bottom;
@@ -138,14 +137,104 @@ const ReservationForecast: React.FC = () => {
       .attr("stroke-width", 1.5)
       .attr("d", lineDepRooms);
 
+    // X
     svg
       .append("g")
       .attr("transform", `translate(0,${height - margin.bottom})`)
-      .call(d3.axisBottom(x));
+      .call(d3.axisBottom(x).tickFormat(d3.timeFormat("%d-%m-%Y")));
+    svg
+      .selectAll(".line-to-x")
+      .data(chartData)
+      .enter()
+      .append("line")
+      .attr("class", "line-to-x")
+      .attr("x1", (d: any) => x(new Date(d.Date)))
+      .attr("y1", (d: any) => y(0))
+      .attr("x2", (d: any) => x(new Date(d.Date)))
+      .attr("y2", (d: any) => y(+d["Total Occ."])) // Adjust to the appropriate y-value
+      .style("stroke", "gray")
+      .style("stroke-dasharray", "3");
+    // Y
     svg
       .append("g")
       .attr("transform", `translate(${margin.left},0)`)
       .call(d3.axisLeft(y));
+    svg
+      .selectAll(".line-to-y")
+      .data(chartData)
+      .enter()
+      .append("line")
+      .attr("class", "line-to-y")
+      .attr("x1", (d: any) => x(new Date(d.Date)))
+      .attr("y1", (d: any) => y(+d["Total Occ."]))
+      .attr("x2", margin.left)
+      .attr("y2", (d: any) => y(+d["Total Occ."]))
+      .style("stroke", "gray")
+      .style("stroke-dasharray", "3");
+
+    // Dots
+    svg
+      .selectAll(".dot-total-occ")
+      .data(chartData)
+      .enter()
+      .append("circle")
+      .attr("class", "dot-total-occ")
+      .attr("cx", (d: any) => x(new Date(d.Date)))
+      .attr("cy", (d: any) => y(+d["Total Occ."]))
+      .attr("r", 5)
+      .style("fill", "steelblue")
+      .on("mouseover", function (d) {
+        tooltip.transition().duration(200).style("opacity", 0.9);
+        tooltip
+          .html(`Date: ${d.Date}<br>Total Occ.: ${d["Total Occ."]}`)
+          .style("left", `${d3.event.pageX}px`)
+          .style("top", `${d3.event.pageY - 28}px`);
+      })
+      .on("mouseout", function (d) {
+        tooltip.transition().duration(500).style("opacity", 0);
+      });
+
+    svg
+      .selectAll(".dot-arr-rooms")
+      .data(chartData)
+      .enter()
+      .append("circle")
+      .attr("class", "dot-arr-rooms")
+      .attr("cx", (d: any) => x(new Date(d.Date)))
+      .attr("cy", (d: any) => y(+d["Arr. Rooms"]))
+      .attr("r", 5)
+      .style("fill", "green")
+      .on("mouseover", function (d) {
+        tooltip.transition().duration(200).style("opacity", 0.9);
+        tooltip
+          .html(`Date: ${d.Date}<br>Arr. Rooms: ${d["Arr. Rooms"]}`)
+          .style("left", `${d3.event.pageX}px`)
+          .style("top", `${d3.event.pageY - 28}px`);
+      })
+      .on("mouseout", function (d) {
+        tooltip.transition().duration(500).style("opacity", 0);
+      });
+
+    svg
+      .selectAll(".dot-dep-rooms")
+      .data(chartData)
+      .enter()
+      .append("circle")
+      .attr("class", "dot-dep-rooms")
+      .attr("cx", (d: any) => x(new Date(d.Date)))
+      .attr("cy", (d: any) => y(+d["Dep. Rooms"]))
+      .attr("r", 5)
+      .style("fill", "red")
+      .on("mouseover", function (d) {
+        tooltip.transition().duration(200).style("opacity", 0.9);
+        tooltip
+          .html(`Date: ${d.Date}<br>Dep. Rooms: ${d["Dep. Rooms"]}`)
+          .style("left", `${d3.event.pageX}px`)
+          .style("top", `${d3.event.pageY - 28}px`);
+      })
+      .on("mouseout", function (d) {
+        tooltip.transition().duration(500).style("opacity", 0);
+      });
 
     svg
       .append("rect")
@@ -176,31 +265,31 @@ const ReservationForecast: React.FC = () => {
         tooltip
           .html(
             `
-            <div class="tooltip-content">
+            <div class="tooltip-content" style="background-color: var(--light-bg-color); padding: 30px; border: 1px solid black">
             <p class="mb-0">
-              <strong style = "color: stealblue">Date:</strong> ${dataPoint.Date}
+              <strong>Date:</strong> ${dataPoint.Date}
             </p>
             <p class="mb-0">
-              <strong style = "color: steelblue">Total Occ.:</strong> ${dataPoint["Total Occ."]}
+              <strong style = "color: steelblue">Total Occ.: ${dataPoint["Total Occ."]}</strong>
             </p>
             <p class="mb-0">
-              <strong style = "color: green">Arr. Rooms:</strong> ${dataPoint["Arr. Rooms"]}
+              <strong style = "color: green">Arr. Rooms: ${dataPoint["Arr. Rooms"]}</strong>
             </p>
             <p class="mb-0">
-              <strong style="color: red">Dep. Rooms:</strong> ${dataPoint["Dep. Rooms"]}
+              <strong style="color: red">Dep. Rooms: ${dataPoint["Dep. Rooms"]}</strong>
             </p>
           </div>  
               
               `
           )
-          .style("left", xMouse + width + "px" )
-          .style("top", yMouse + 100 + "px");
+          .style("left", event.pageX - 200 + "px")
+          .style("top", event.pageY + 28 + "px");
       });
   };
 
   useEffect(() => {
     const tooltip = d3
-      .select("body")
+      .select("svg")
       .append("div")
       .attr("class", "tooltip")
       .style("opacity", 0);
