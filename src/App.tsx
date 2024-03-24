@@ -18,7 +18,6 @@ import "./styles/global.scss";
 import Dashboard from "./pages/Admin/Dashboard/Dashboard";
 import ActualData from "./pages/ActualData/ActualData";
 import ReservationForecast from "./pages/Admin/ReservationForecast/ReservationForecast";
-import PeriodDetail from "./pages/Admin/PeriodDetail/PeriodDetail";
 import { getUser } from "./hooks/userHook";
 import About from "./pages/About/About";
 
