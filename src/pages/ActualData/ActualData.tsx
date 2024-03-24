@@ -127,11 +127,11 @@ export default function ActualData() {
 
   return (
     <div
-      className="d-flex flex-column align-items-center justify-content-center"
+      className="w-100"
       style={{ height: "100%" }}
     >
       <div>
-        <h1>Actual Data</h1>
+        <h1 className="content__Title">Actual Data</h1>
         <Table
           columns={columns}
           dataSource={dataWithGrandTotal}

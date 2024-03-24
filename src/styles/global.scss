@@ -46,15 +46,8 @@ Link {
   text-decoration: none !important;
 }
 
-.home__LoginForm {
-  background-image: linear-gradient(white, transparent);
-  box-shadow: grey 0px 0px 190px 0px;
-}
-
 .content {
   min-height: 100dvh;
-  display: flex;
-  justify-content: center;
 }
 
 .bg {
@@ -66,10 +59,7 @@ Link {
 }
 
 section {
-  min-height: 100dvh;
-  width: 100%;
-  margin: auto;
-  padding-top: 100px;
+  padding: 100px 0;
   position: relative;
   z-index: 2;
 }
@@ -84,18 +74,73 @@ section {
   z-index: 0;
 }
 
-.bg2 {
-  background-image: url("/images/background/bg-booking.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+.home__LoginForm {
+  background-image: linear-gradient(white, transparent);
+  box-shadow: grey 0px 0px 190px 0px;
 }
 
-.bg3 {
-  background-image: url("/images/background/bg3.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+.btn__Primary {
+  padding: 5px 30px;
+  border-radius: 4px;
+  color: var(--light-text-color);
+  transition: all 0.25s ease;
+  background-color: var(--theme-color);
+  border: 1px solid var(--theme-color);
+
+  &:hover {
+    background-color: var(--light-text-color);
+    color: var(--theme-color);
+    border: 1px solid var(--theme-color);
+  }
 }
+
+.btn__Light {
+  padding: 5px 30px;
+  border-radius: 4px;
+  color: var(--light-text-color);
+  transition: all 0.25s ease;
+  background-color: transparent;
+  border: 1px solid var(--light-bg-color);
+  &:hover {
+    background-color: var(--light-bg-color);
+    color: var(--theme-color);
+  }
+}
+
+.section__Title {
+  color: var(--light-text-color);
+  position: relative;
+  padding: 10px;
+}
+.content__Title {
+  color: var(--dark-text-color);
+  position: relative;
+  padding: 10px;
+  font-size: 20px;
+}
+.content__Title::after {
+  content: "";
+  position: absolute;
+  background-color: var(--dark-text-color);
+  bottom: 10;
+  left: 0;
+  height: 70%;
+  border-radius: 4px;
+  width: 2px;
+}
+
+// .bg2 {
+//   background-image: url("/images/background/bg-booking.png");
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-position: center;
+//   background-attachment: fixed;
+// }
+
+// .bg3 {
+//   background-image: url("/images/background/bg3.jpg");
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-position: center;
+//   background-attachment: fixed;
+// }

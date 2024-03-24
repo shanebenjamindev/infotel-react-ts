@@ -23,7 +23,7 @@ function App() {
     return (
       <div className="main">
         <Header />
-        <div className="content">
+        <div className="">
           <Outlet />
         </div>
         <Footer />
@@ -37,10 +37,9 @@ function App() {
     if (user) {
       return (
         <div className="main">
-          <Header />
           {user?.role === "admin" ? (
             <div className="content d-md-flex">
-              <div className="col-md-2 pl-0 " style={{ height: "100%" }}>
+              <div className="col-md-2 pl-0">
                 <Sidebar />
               </div>
               <div className="col-md-10 p-2">
@@ -48,16 +47,14 @@ function App() {
               </div>
             </div>
           ) : (
-            <>You have not permission</>
+            <>You do not have permission to access this page</>
           )}
-
-          <Footer />
         </div>
       );
     } else {
       return (
-        <p className=" text-center p-5">
-          Please, <Link to="/login">Click here </Link> to login first
+        <p className="text-center p-5">
+          Please <Link to="/login">click here</Link> to login first
         </p>
       );
     }

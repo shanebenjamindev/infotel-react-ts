@@ -1,0 +1,8 @@
+.booking__Container {
+  position: relative;
+
+  z-index: 9998;
+  .booking__Contain {
+    transform: translateY(-100px);
+  }
+}

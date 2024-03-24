@@ -28,7 +28,7 @@ export default function Header() {
         className="collapse navbar-collapse d-lg-flex justify-content-center"
         id="navbarSupportedContent"
       >
-        <ul className="navbar-nav">
+        <ul className="navbar-nav text-center">
           <li className="nav-item">
             <Link to={"/"} className="nav-link">
               Home
@@ -41,7 +41,7 @@ export default function Header() {
           </li>
         </ul>
         <div
-          className="d-flex ml-auto align-items-center"
+          className="d-flex ml-auto justify-content-center align-items-center"
           style={{ gap: "10px" }}
         >
           {user ? (
@@ -57,11 +57,7 @@ export default function Header() {
               ) : null}
             </div>
           ) : (
-            <div>
-              <Link to="/login" className="btn">
-                Login
-              </Link>
-            </div>
+            <Link className="btn__Primary" to="/login">Login</Link>
           )}
         </div>
       </div>

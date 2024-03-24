@@ -1,6 +1,9 @@
+.login__Container {
+  min-height: 85vh;
+  justify-content: center;
+  align-items: center;
+}
 .home__LoginForm {
-  background-image: linear-gradient(white, transparent);
-  box-shadow: grey 0px 0px 190px 0px;
   animation: fadeUp 1s ease forwards;
 
   form {

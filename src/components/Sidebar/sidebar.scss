@@ -1,6 +1,23 @@
+// sidebar.scss
 .sidebar {
-  background-color: var(--sidebar-bg-color);
-    .item {
+  background-color: var(--theme-color);
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: width 0.5s;
+
+  @media (max-width: 768px) {
+    width: 0;
+    position: fixed;
+    overflow: hidden;
+    height: auto;
+    bottom: 0;
+    z-index: 9998;
+  }
+
+  .item {
+    z-index: 9999;
+
     .title {
       padding: 10px;
       font-size: 12px;
@@ -12,16 +29,48 @@
       padding: 20px;
       display: flex;
       align-items: center;
-      color: var(--light-text-color);
+      color: var(--dark-text-color);
       gap: 10px;
-
+      transition: all 0.25s ease;
       &:hover {
-        background-color: var(--sidebar-active-color);
+        box-shadow: black 0px 7px 29px 0px;
+        color: var(--light-text-color);
       }
 
       &.active {
-        background-color: var(--sidebar-active-color);
+        color: var(--light-text-color);
+        box-shadow: black 0px 7px 29px 0px;
       }
     }
+  }
+}
+
+.sidebar.open {
+  width: 60%;
+}
+
+.sidebar .nav-link {
+  padding: 10px 15px;
+  z-index: 9999;
+  display: block;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #ddd;
+}
+
+.sidebar-toggle {
+  display: none;
+  position: absolute;
+  z-index: 1100;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .sidebar-toggle {
+    z-index: 9999;
+    top: 20px;
+    right: 20px;
+    position: fixed;
+    display: block;
   }
 }

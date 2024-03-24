@@ -64,6 +64,7 @@ const ReservationForecast: React.FC = () => {
   }, [chartData]);
 
   const drawChart = () => {
+    const dateFormat = d3.timeFormat("%d-%m-%Y");
     const svg = d3.select(svgRef.current);
     const viewBoxWidth = width + margin.left + margin.right;
     const viewBoxHeight = height + margin.top + margin.bottom;
@@ -111,6 +112,7 @@ const ReservationForecast: React.FC = () => {
 
     svg.selectAll("*").remove();
 
+    // Line Blue
     svg
       .append("path")
       .datum(chartData)
@@ -118,7 +120,7 @@ const ReservationForecast: React.FC = () => {
       .attr("stroke", "steelblue")
       .attr("stroke-width", 1.5)
       .attr("d", lineTotalOcc);
-
+    // Line Green
     svg
       .append("path")
       .datum(chartData)
@@ -127,6 +129,7 @@ const ReservationForecast: React.FC = () => {
       .attr("stroke-width", 1.5)
       .attr("d", lineArrRooms);
 
+    // Line Red
     svg
       .append("path")
       .datum(chartData)
@@ -169,16 +172,29 @@ const ReservationForecast: React.FC = () => {
             dataDate.getFullYear() === date.getFullYear()
           );
         });
-
+        // Toolkit
         tooltip
           .html(
-            `<strong>Date: </strong>${dataPoint.Date}<br>` +
-              `<strong>Total Occ.: </strong>${dataPoint["Total Occ."]}<br>` +
-              `<strong>Arr. Rooms: </strong>${dataPoint["Arr. Rooms"]}<br>` +
-              `<strong>Dep. Rooms: </strong>${dataPoint["Dep. Rooms"]}`
+            `
+            <div class="tooltip-content">
+            <p class="mb-0">
+              <strong style = "color: stealblue">Date:</strong> ${dataPoint.Date}
+            </p>
+            <p class="mb-0">
+              <strong style = "color: steelblue">Total Occ.:</strong> ${dataPoint["Total Occ."]}
+            </p>
+            <p class="mb-0">
+              <strong style = "color: green">Arr. Rooms:</strong> ${dataPoint["Arr. Rooms"]}
+            </p>
+            <p class="mb-0">
+              <strong style="color: red">Dep. Rooms:</strong> ${dataPoint["Dep. Rooms"]}
+            </p>
+          </div>  
+              
+              `
           )
-          .style("left", xMouse + 700 + "px")
-          .style("top", yMouse + 200 + "px");
+          .style("left", xMouse + width + "px" )
+          .style("top", yMouse + 100 + "px");
       });
   };
 
@@ -189,11 +205,8 @@ const ReservationForecast: React.FC = () => {
       .attr("class", "tooltip")
       .style("opacity", 0);
 
-    // Other code for fetching data and drawing chart...
-
-    // Cleanup function
     return () => {
-      tooltip.remove(); // Remove the tooltip when the component unmounts
+      tooltip.remove();
     };
   }, [selectedPeriod]);
 
@@ -206,7 +219,7 @@ const ReservationForecast: React.FC = () => {
 
   return (
     <div className="h-100 d-flex flex-column justify-content-center">
-      <h2>Reservation Forecast</h2>
+      <h2 className="content__Title">Reservation Forecast</h2>
       <div className="d-flex justify-content-end">
         <select
           className="reservation__Select"
@@ -230,7 +243,7 @@ const ReservationForecast: React.FC = () => {
       </div>
       <div className=" mt-4">
         <div className="d-flex justify-content-between align-items-center">
-          <h2>Reservation Forecast</h2>
+          <h2 className="content__Title">Period Details</h2>
           <button className="btn btn-outline-success" onClick={downloadExcel}>
             Download Excel
           </button>

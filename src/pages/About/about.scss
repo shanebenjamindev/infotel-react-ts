@@ -1,46 +1,14 @@
 .about-container {
-  justify-content: space-around;
-  align-items: center;
-  gap: 39px;
-
   .about-card {
     padding: 20px;
+    margin-bottom: 30px;
     height: 100%;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
     background-color: white;
     transition: all 0.5s ease;
-
-    &:hover {
-      transform: translateY(-15px);
-      background-color: black;
-      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-      color: white;
-    }
-
-    h1 {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-size: 20px;
-      margin-top: 20px;
-      margin-bottom: 10px;
-    }
-
-    ul,
-    ol {
-      margin-left: 20px;
-      margin-bottom: 20px;
-    }
-
-    p,
-    li {
-      line-height: 1.5;
-    }
-
+    
     a {
       color: #007bff;
       text-decoration: none;
@@ -49,12 +17,4 @@
       }
     }
   }
-}
-
-.bg2 {
-  background-image: url("/images/background/bg-booking.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
 }
