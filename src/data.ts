@@ -1,3 +1,23 @@
+export const listAccount = [
+  {
+    admin: {
+      username: "admin",
+      password: "admin",
+      email: "admin@example.com",
+      role: "admin",
+      fullName: "Admin User",
+    },
+    users: [
+      {
+        username: "user",
+        password: "user",
+        email: "user@example.com",
+        role: "user",
+        fullName: "User One",
+      },
+    ],
+  },
+];
 export const sidebar = [
   {
     id: 1,

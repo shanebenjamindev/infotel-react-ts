@@ -126,7 +126,7 @@ export default function ActualData() {
   const dataWithGrandTotal = [...dataSource, grandTotal];
 
   return (
-    <div>
+    <section>
       <h1>Actual Data</h1>
       <Table
         columns={columns}
@@ -134,6 +134,6 @@ export default function ActualData() {
         rowKey="property"
         scroll={{ x: screen.availHeight}} // Enable horizontal scrolling and set a fixed height for vertical scrolling
       />
-    </div>
+    </section>
   );
 }

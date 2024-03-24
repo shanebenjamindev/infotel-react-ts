@@ -1,9 +1,14 @@
-import { BellOutlined, UserOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { getUser, logoutUser } from "../../hooks/userHook";
 
 export default function Header() {
+  const user = getUser();
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    logoutUser(navigate);
+  };
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark">
+    <nav className="navbar navbar-expand-lg navbar-light bg-white">
       <Link to="/" className="navbar-brand">
         Infotel
       </Link>
@@ -25,14 +30,41 @@ export default function Header() {
       >
         <ul className="navbar-nav">
           <li className="nav-item">
-            <button className="nav-link">PC/Mobile</button>
+            <Link to={"/"} className="nav-link">
+              Home
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/about" className="nav-link">
+              About
+            </Link>
+          </li>
+          <li className="nav-item">
+            {user && user.role === "admin" ? (
+              <Link to="/admin" className="nav-link">
+                Go to Admin
+              </Link>
+            ) : null}
           </li>
         </ul>
-      </div>
-      <div className="d-flex align-items-center">
-        <div>User's name</div>
-        <div className="notification">
-          <img src="/notifications.svg" />
+        <div
+          className="d-flex ml-auto align-items-center"
+          style={{ gap: "10px" }}
+        >
+          {user ? (
+            <div className="d-flex align-items-center" style={{ gap: "20px" }}>
+              <span>Welcome, {user.fullName}</span>
+              <button onClick={handleLogout} className="btn btn-outline-danger">
+                Logout
+              </button>
+            </div>
+          ) : (
+            <div>
+              <Link to="/login" className="btn">
+                Login
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </nav>

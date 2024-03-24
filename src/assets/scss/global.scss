@@ -1,3 +1,4 @@
+
 *,
 *:before,
 *:after {
@@ -8,6 +9,7 @@
   padding: 0;
   font: inherit;
 }
+
 img,
 picture,
 svg,
@@ -50,10 +52,51 @@ Link {
 }
 
 .content {
-  min-height: 93dvh;
-  padding: 0;
-  margin: 0;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.bg {
+  background-image: url("/images/background/bg1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+section {
+  min-height: 100dvh;
+  width: 100%;
+  margin: auto;
+  padding: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.overlay__Inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  box-shadow: inset black 0px 7px 219px 10px;
+  z-index: 0;
+}
+
+.bg2 {
+  background-image: url("/images/background/bg-booking.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.bg3 {
+  background-image: url("/images/background/bg3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
