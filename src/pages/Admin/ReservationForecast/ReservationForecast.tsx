@@ -18,7 +18,7 @@ const ReservationForecast: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("../../../Reservations.csv");
+      const response = await fetch("/data/Reservations.csv");
       const csvData = await response.text();
       const parsedData = d3.csvParse(csvData);
 
@@ -269,7 +269,12 @@ const NestedTable: React.FC<{ data: any[] }> = ({ data }) => {
       className="period__Detail"
       style={{ overflowX: "auto", marginTop: "20px" }}
     >
-      <Table columns={columns} dataSource={data} pagination={false} />
+      <Table
+        columns={columns}
+        dataSource={data}
+        pagination={false}
+        rowKey={(outlet) => outlet.Date}
+      />
     </div>
   );
 };
