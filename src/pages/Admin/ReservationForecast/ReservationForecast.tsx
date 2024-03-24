@@ -18,7 +18,7 @@ const ReservationForecast: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("/Reservations.csv");
+      const response = await fetch("../../../../Reservations.csv");
       const csvData = await response.text();
       const parsedData = d3.csvParse(csvData);
 
