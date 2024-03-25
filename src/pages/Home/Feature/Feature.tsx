@@ -3,7 +3,7 @@ export default function Feature() {
     <section className="features">
       <div className="d-md-flex align-items-center">
         <div className="col-md-6">
-          <img src="/public/images/background/bg1.png" alt="" />
+          <img src="/images/background/bg1.png" alt="" />
         </div>
         <div className="col-md-6 h-100">
           <h1>Our Feature</h1>
