@@ -1,8 +1,9 @@
 // Sidebar.jsx
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { sidebar } from "../../data";
 import "./sidebar.scss";
+import { logoutUser } from "../../hooks/userHook";
 
 const Sidebar = () => {
   const location = useLocation();
@@ -11,7 +12,10 @@ const Sidebar = () => {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
-
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    logoutUser(navigate);
+  };
   return (
     <>
       <button className="sidebar-toggle btn__Primary" onClick={toggleSidebar}>
@@ -37,7 +41,9 @@ const Sidebar = () => {
           </div>
         ))}
         <div className="text-center mt-4">
-          <button className="btn__Light" >Logout</button>
+          <button className="btn__Light" onClick={handleLogout}>
+            Logout
+          </button>
         </div>
       </div>
     </>
