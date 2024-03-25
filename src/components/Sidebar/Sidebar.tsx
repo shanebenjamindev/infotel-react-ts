@@ -1,5 +1,5 @@
 // Sidebar.jsx
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { sidebar } from "../../data";
 import "./sidebar.scss";
@@ -17,6 +17,7 @@ const Sidebar = () => {
       <button className="sidebar-toggle btn__Primary" onClick={toggleSidebar}>
         {isSidebarOpen ? "Close" : "Menu"}
       </button>
+
       <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
         {sidebar.map((item) => (
           <div className={`item  `} key={item.id}>
@@ -35,6 +36,9 @@ const Sidebar = () => {
             ))}
           </div>
         ))}
+        <div className="text-center mt-4">
+          <button className="btn__Light" >Logout</button>
+        </div>
       </div>
     </>
   );

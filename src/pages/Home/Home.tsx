@@ -1,5 +1,4 @@
-import { useState } from "react";
-import "./home.scss"; // Import your custom CSS file
+import "./home.scss";
 import HeroSection from "./Hero/Hero";
 import Feature from "./Feature/Feature";
 import Testimonials from "./Testimonials/Testinonials";

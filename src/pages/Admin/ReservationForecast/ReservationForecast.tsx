@@ -141,7 +141,7 @@ const ReservationForecast: React.FC = () => {
     svg
       .append("g")
       .attr("transform", `translate(0,${height - margin.bottom})`)
-      .call(d3.axisBottom(x).tickFormat(d3.timeFormat("%d-%m-%Y")));
+      .call(d3.axisBottom<Date>(x).tickFormat(d3.timeFormat("%d-%m-%Y")));
     svg
       .selectAll(".line-to-x")
       .data(chartData)
@@ -149,7 +149,7 @@ const ReservationForecast: React.FC = () => {
       .append("line")
       .attr("class", "line-to-x")
       .attr("x1", (d: any) => x(new Date(d.Date)))
-      .attr("y1", (d: any) => y(0))
+      .attr("y1", () => y(0))
       .attr("x2", (d: any) => x(new Date(d.Date)))
       .attr("y2", (d: any) => y(+d["Total Occ."])) // Adjust to the appropriate y-value
       .style("stroke", "gray")
@@ -183,14 +183,14 @@ const ReservationForecast: React.FC = () => {
       .attr("cy", (d: any) => y(+d["Total Occ."]))
       .attr("r", 5)
       .style("fill", "steelblue")
-      .on("mouseover", function (d) {
+      .on("mouseover", function (d, event) {
         tooltip.transition().duration(200).style("opacity", 0.9);
         tooltip
           .html(`Date: ${d.Date}<br>Total Occ.: ${d["Total Occ."]}`)
-          .style("left", `${d3.event.pageX}px`)
-          .style("top", `${d3.event.pageY - 28}px`);
+          .style("left", `${event.pageX}px`)
+          .style("top", `${event.pageY - 28}px`);
       })
-      .on("mouseout", function (d) {
+      .on("mouseout", function () {
         tooltip.transition().duration(500).style("opacity", 0);
       });
 
@@ -204,14 +204,14 @@ const ReservationForecast: React.FC = () => {
       .attr("cy", (d: any) => y(+d["Arr. Rooms"]))
       .attr("r", 5)
       .style("fill", "green")
-      .on("mouseover", function (d) {
+      .on("mouseover", function (d, event) {
         tooltip.transition().duration(200).style("opacity", 0.9);
         tooltip
-          .html(`Date: ${d.Date}<br>Arr. Rooms: ${d["Arr. Rooms"]}`)
-          .style("left", `${d3.event.pageX}px`)
-          .style("top", `${d3.event.pageY - 28}px`);
+          .html(`Date: ${d.Date}<br>Total Occ.: ${d["Total Occ."]}`)
+          .style("left", `${event.pageX}px`)
+          .style("top", `${event.pageY - 28}px`);
       })
-      .on("mouseout", function (d) {
+      .on("mouseout", function () {
         tooltip.transition().duration(500).style("opacity", 0);
       });
 
@@ -225,14 +225,14 @@ const ReservationForecast: React.FC = () => {
       .attr("cy", (d: any) => y(+d["Dep. Rooms"]))
       .attr("r", 5)
       .style("fill", "red")
-      .on("mouseover", function (d) {
+      .on("mouseover", function (d, event) {
         tooltip.transition().duration(200).style("opacity", 0.9);
         tooltip
-          .html(`Date: ${d.Date}<br>Dep. Rooms: ${d["Dep. Rooms"]}`)
-          .style("left", `${d3.event.pageX}px`)
-          .style("top", `${d3.event.pageY - 28}px`);
+          .html(`Date: ${d.Date}<br>Total Occ.: ${d["Total Occ."]}`)
+          .style("left", `${event.pageX}px`)
+          .style("top", `${event.pageY - 28}px`);
       })
-      .on("mouseout", function (d) {
+      .on("mouseout", function () {
         tooltip.transition().duration(500).style("opacity", 0);
       });
 
@@ -249,7 +249,7 @@ const ReservationForecast: React.FC = () => {
         tooltip.style("opacity", 0);
       })
       .on("mousemove", function (event) {
-        const [xMouse, yMouse] = d3.pointer(event);
+        const [xMouse] = d3.pointer(event);
 
         const date = x.invert(xMouse);
 
@@ -309,9 +309,13 @@ const ReservationForecast: React.FC = () => {
   return (
     <div className="h-100 d-flex flex-column justify-content-center">
       <h2 className="content__Title">Reservation Forecast</h2>
-      <div className="d-flex justify-content-end">
+      <div
+        className="d-flex align-items-center justify-content-end"
+        style={{ gap: "10px" }}
+      >
+        <span>Select period:</span>
         <select
-          className="reservation__Select"
+          className="reservation__Select my-3"
           value={selectedPeriod}
           onChange={handlePeriodChange}
         >

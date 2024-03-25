@@ -126,18 +126,16 @@ export default function ActualData() {
   const dataWithGrandTotal = [...dataSource, grandTotal];
 
   return (
-    <div
-      className="w-100"
-      style={{ height: "100%" }}
-    >
-      <div>
-        <h1 className="content__Title">Actual Data</h1>
-        <Table
-          columns={columns}
-          dataSource={dataWithGrandTotal}
-          rowKey="property"
-          scroll={{ x: screen.availHeight }}
-        />
+      <div className="sm-flex-column justify-content-center align-items-center">
+        <div>
+          <h1 className="content__Title">Actual Data</h1>
+          <Table
+            columns={columns}
+            dataSource={dataWithGrandTotal}
+            rowKey="property"
+            scroll={{ x: true }}
+            pagination={false} 
+          />
       </div>
     </div>
   );
