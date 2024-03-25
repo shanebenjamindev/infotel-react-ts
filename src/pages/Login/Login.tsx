@@ -81,7 +81,7 @@ export default function Login() {
                   type="email"
                   id="form2Example11"
                   className="form-control"
-                  placeholder="Phone number or email address"
+                  placeholder="Enter username"
                   value={username}
                   onChange={handleUsernameChange}
                 />
