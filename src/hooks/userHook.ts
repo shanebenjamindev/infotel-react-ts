@@ -11,7 +11,7 @@ export const getUser = () => {
       const user = JSON.parse(storedUser);
       return user;
     } catch (error) {
-      aconsole.error("Error parsing user data:", error);
+      console.error("Error parsing user data:", error);
       return null;
     }
   }
