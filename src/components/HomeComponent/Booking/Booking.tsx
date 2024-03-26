@@ -22,12 +22,12 @@ export default function Booking() {
   return (
     <section className="booking__Container">
       <div className="booking__Contain">
-        <div className="w-75 m-auto">
-          <h1 className="section__Title">Hotel Booking</h1>
-          <form onSubmit={handleSearch} className="mt-2">
+        <div className="section__Content w-75 m-auto">
+          <h1 className="section__LightTitle">Hotel Booking</h1>
+          <form onSubmit={handleSearch} className="booking__Form mt-2">
             <div className="row">
               <div className="col-md-4 mb-2">
-                <label>Select Location</label>
+                <label className="content__Title">Select Location</label>
                 <input
                   type="text"
                   className="form-control"
@@ -37,7 +37,7 @@ export default function Booking() {
                 />
               </div>
               <div className="col-md-2 mb-2">
-                <label>Start date</label>
+                <label className="content__Title">Start date</label>
                 <input
                   type="date"
                   className="form-control"
@@ -47,7 +47,7 @@ export default function Booking() {
                 />
               </div>
               <div className="col-md-2 mb-2">
-                <label>End date</label>
+                <label className="content__Title">End date</label>
                 <input
                   type="date"
                   className="form-control"
@@ -57,7 +57,7 @@ export default function Booking() {
                 />
               </div>
               <div className="col-md-2 mb-2">
-                <label>Guest</label>
+                <label className="content__Title">Guest</label>
                 <input
                   type="number"
                   className="form-control"

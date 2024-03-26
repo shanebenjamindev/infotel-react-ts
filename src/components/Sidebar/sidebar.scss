@@ -24,24 +24,30 @@
       padding: 10px;
       font-size: 12px;
       font-weight: 200;
-      color: grey;
+      color: var(--fade-text-color);
     }
 
     .listItem {
       padding: 20px;
       display: flex;
       align-items: center;
-      color: var(--dark-text-color);
+      color: var(--light-text-color);
       gap: 10px;
       transition: all 0.25s ease;
+      
       &:hover {
-        box-shadow: black 0px 7px 29px 0px;
+        box-shadow: black -10px 7px 19px 0px;
         color: var(--light-text-color);
+        z-index: 2;
+        padding-left: 50px;
+        margin: 10px;
       }
 
       &.active {
+        z-index: 1;
         color: var(--light-text-color);
-        box-shadow: black 0px 7px 29px 0px;
+        padding-left: 60px;
+        box-shadow: black -10px 7px 10px 0px;
       }
     }
   }

@@ -38,23 +38,27 @@ export default function Dashboard() {
   }, [user]);
 
   return (
-    <section className="dashboard">
-      <div className="box box1">
-        {user ? (
-          <div>
-            <h2 className="section__DarkTitle">
-              WELLCOME, <strong> {user.fullName}</strong>
-            </h2>
-            <p>{greeting}</p>
-            <p>Current time: {currentTime}</p>
+    <section>
+      <div className="section__Content">
+        <div className="dashboard">
+          <div className="box box1">
+            {user ? (
+              <div>
+                <h2 className="section__DefaultTitle">
+                  WELLCOME, <strong> {user.fullName}</strong>
+                </h2>
+                <p>{greeting}</p>
+                <p>Current time: {currentTime}</p>
+              </div>
+            ) : null}
           </div>
-        ) : null}
-      </div>
-      <div className="box box2">
-        <ReservationForecast />
-      </div>
-      <div className="box box3">
-        <ActualData />
+          <div className="box box2">
+            <ReservationForecast />
+          </div>
+          <div className="box box3">
+            <ActualData />
+          </div>
+        </div>
       </div>
     </section>
   );

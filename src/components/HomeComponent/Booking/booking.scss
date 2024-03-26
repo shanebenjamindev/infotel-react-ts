@@ -4,5 +4,8 @@
 
   .booking__Contain {
     transform: translateY(-120px);
+    .booking__Form {
+      box-shadow: rgb(167, 167, 167) 0px 50px 120px 1px;
+    }
   }
 }

@@ -4,20 +4,19 @@ import "./about.scss";
 const About = () => {
   return (
     <section className="about">
-      <div className="p-5">
+      <div className="section__Content">
         <div className="container about__Content">
-          <h1>About Booking Application</h1>
+        <h1 className="section__DefaultTitle">About Booking Application</h1>
           <p>
             Welcome to the Room Booking Application! Our platform provides an
             easy and convenient way to book rooms for various purposes, whether
             it's for meetings, events, or any other gatherings.
           </p>
           <div className="about-card">
-            <h2>Features</h2>
+            <h2 className="content__Title">Features</h2>
             <ul>
-              <li className="content__Title">
-                User Registration and Authentication: Securely register and log
-                in to your account to access booking features.
+              <li className="content__SubTitle">
+                User Registration and Authentication:
               </li>
               <li>
                 Room Booking: Browse available rooms, view details, and book
@@ -38,9 +37,9 @@ const About = () => {
             </ul>
           </div>
           <div className="about-card">
-            <h2>How to Get Started</h2>
+            <h2 className="content__Title">How to Get Started</h2>
             <ol>
-              <li className="content__Title">
+              <li className="content__SubTitle">
                 If you're new to the application,{" "}
                 <Link to="/register">register here</Link> to create an account.
               </li>

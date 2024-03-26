@@ -1,9 +1,17 @@
 /* moblie: width < 740px */
 @media screen and (max-width: 739px) {
+  body {
+  }
 }
 /* tablet: 740<= width < 1024 */
 @media screen and (min-width: 740px) and (max-width: 1024px) {
+  body {
+    // font-size: var(--font-size-medium) !important;
+  }
 }
 /*  pc: width >= 1024px */
 @media screen and (min-width: 1025px) {
+  body {
+    // font-size: var(--font-size-largh) !important;
+  }
 }

@@ -9,7 +9,7 @@ export default function Header() {
   };
   return (
     <nav className="navbar fixed-top navbar-expand-lg navbar-light">
-      <Link to="/" className="navbar-brand">
+      <Link to="/" className="navbar-brand section__Title">
         Infotel
       </Link>
       <button
@@ -47,17 +47,19 @@ export default function Header() {
           {user ? (
             <div className="d-flex align-items-center" style={{ gap: "20px" }}>
               <span>Welcome, {user.fullName}</span>
-              <button onClick={handleLogout} className="btn btn-outline-danger">
+              <button onClick={handleLogout} className="btn__Danger">
                 Logout
               </button>
               {user && user.role === "admin" ? (
-                <Link to="/admin" className="btn btn-dark">
+                <Link to="/admin" className="btn__Primary">
                   Go to Admin
                 </Link>
               ) : null}
             </div>
           ) : (
-            <Link className="btn__Primary" to="/login">Login</Link>
+            <Link className="btn__Primary" to="/login">
+              Login
+            </Link>
           )}
         </div>
       </div>

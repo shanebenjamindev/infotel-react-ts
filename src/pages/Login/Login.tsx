@@ -67,10 +67,10 @@ export default function Login() {
 
   return (
     <section className="bg">
-      <div className="login__Container">
+      <div className="login__Container section__Content">
         <div className="home__LoginForm py-5 px-lg-5 px-2 rounded">
           <div className="text-center">
-            <h2>Login</h2>
+            <h2 className="content__Title">LOGIN</h2>
           </div>
           <form className="my-5">
             <div className="form-group">

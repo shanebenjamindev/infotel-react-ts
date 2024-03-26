@@ -127,8 +127,8 @@ export default function ActualData() {
 
   return (
     <section className="d-flex align-items-center">
-      <div style={{ overflowX: "auto" }}>
-        <h1 className="content__Title">Actual Data</h1>
+      <div className="section__Content" style={{ overflowX: "auto" }}>
+        <h1 className="content__SubTitle">Actual Data</h1>
         <Table
           columns={columns}
           dataSource={dataWithGrandTotal}

@@ -5,28 +5,26 @@
   background-position: center;
   background-attachment: fixed;
   height: 100dvh;
-
   box-shadow: inset var(--theme-color) 20rem 0px 20rem 200px;
 
   .hero-content {
-    display: flex;
-    flex-direction: column;
     height: 100%;
-    width: 45%;
-    padding: 200px;
-    justify-content: center;
+    width: 50%;
+    padding-top: 15%;
+    padding-left: 5%;
     color: var(--light-text-color);
     h1 {
-      font-size: var(--font-size-largh);
+      font-size: var(--font-size-extra-largh);
     }
   }
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 739px) {
+    box-shadow: inset var(--theme-color) 15rem 0px 200rem 20px;
     .hero-content {
       width: 100%;
-      padding: 10px;
+      padding: 200px 20px;
       text-align: center;
       h1 {
-        font-size: var(--font-size-medium);
+        font-size: var(--font-size-content-title-medium);
       }
     }
   }

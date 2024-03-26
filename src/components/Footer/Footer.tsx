@@ -1,10 +1,11 @@
+import "./footer.scss";
 export default function Footer() {
   return (
-    <div>
-      <div className="bg text-center py-4">
+    <section>
+      <div className="bg section__Content text-center py-4">
         <div className="container">
-          <h2 className="section__Title">Subscribe to Our Newsletter</h2>
-          <p>Get the latest news and updates straight to your inbox!</p>
+          <h2 className="section__DefaultTitle">Subscribe to Our Newsletter</h2>
+          <p className="content__FadeTitle">Get the latest news and updates straight to your inbox!</p>
           <form>
             <div className="d-md-flex m-auto" style={{ gap: "5px" }}>
               <input
@@ -19,8 +20,8 @@ export default function Footer() {
           </form>
         </div>
       </div>
-      <footer className="site-footer container pt-5">
-        <div className="footer-top d-md-flex justify-content-around">
+      <footer className="site-footer">
+        <div className="footer-top container p-5 d-md-flex justify-content-around">
           <div className="footer-nav">
             <h3>Explore</h3>
             <ul>
@@ -101,6 +102,6 @@ export default function Footer() {
           </p>
         </div>
       </footer>
-    </div>
+    </section>
   );
 }

@@ -1,14 +1,14 @@
 export default function Feature() {
   return (
-    <section className="features">
+    <section>
       <div className="d-md-flex align-items-center">
         <div className="col-md-6">
           <img src="/images/background/bg1.png" alt="" />
         </div>
-        <div className="col-md-6 h-100">
-          <h1>Our Feature</h1>
+        <div className="section__Content col-md-6 h-100">
+          <h1 className="section__DefaultTitle">Our Feature</h1>
           <div>
-            <h2 className="content__Title">
+            <h2 className="content__SubTitle">
               Convenient Booking Anytime, Anywhere
             </h2>
             <div>
@@ -23,7 +23,7 @@ export default function Feature() {
           </div>
 
           <div>
-            <h2 className="content__Title">Instant Confirmation</h2>
+            <h2 className="content__SubTitle">Instant Confirmation</h2>
             <div>
               <p>
                 With our booking system, you'll receive instant confirmation for
@@ -34,7 +34,7 @@ export default function Feature() {
           </div>
 
           <div>
-            <h2 className="content__Title">Wide Range of Services</h2>
+            <h2 className="content__SubTitle">Wide Range of Services</h2>
             <div>
               <p>
                 We offer a diverse selection of services to cater to your needs.

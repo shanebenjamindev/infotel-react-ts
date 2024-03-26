@@ -2,6 +2,7 @@
   //    Background color:
   --sidebar-bg-color: #444;
   --light-bg-color: white;
+  --danger-bg-color: red;
 
   //    Active color:
   --sidebar-active-color: #333;
@@ -10,17 +11,24 @@
   --light-text-color: #fff;
   --dark-text-color: black;
   --fade-text-color: #666;
+  --default-text-color: #444;
 
   //    Hover Color:
   --hover-light-color: #fff;
   --hover-dark-color: #444;
+  --hover-default-color: #444;
 
   // Font Size
-  --font-size-largh: 105px;
-  --font-size-medium: 30px;
+  --font-size-content-title-medium: 2em;
+  --font-size-content-subtitle-medium: 1.5em;
+
+  --font-size-extra-largh: 6em;
+  --font-size-large: 18px;
+  --font-size-medium: 17px;
   --font-size-default: 16px;
   --font-size-small: 14px;
 
   // Theme Color:
   --theme-color: rgb(0, 43, 66);
+  // --theme-color: red;
 }

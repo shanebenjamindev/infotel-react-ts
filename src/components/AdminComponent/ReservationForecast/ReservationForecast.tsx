@@ -308,8 +308,8 @@ const ReservationForecast: React.FC = () => {
 
   return (
     <section className="reservation">
-      <div className="d-md-flex align-items-center justify-content-between">
-        <h2 className="content__Title">Reservation Forecast</h2>
+      <div className="section__Content d-md-flex align-items-center justify-content-between">
+        <h2 className="content__SubTitle">Reservation Forecast</h2>
         <div>
           <span className="mr-2">Select period:</span>
           <select
@@ -332,9 +332,9 @@ const ReservationForecast: React.FC = () => {
       >
         <svg ref={svgRef} width="100%" height="100%"></svg>
       </div>
-      <div className="mt-5">
-        <div className=" d-flex align-items-center justify-content-between">
-          <h2 className="content__Title">Period Details</h2>
+      <div className="mt-5 section__Content">
+        <div className="d-flex align-items-center justify-content-between">
+          <h2 className="content__SubTitle">Period Details</h2>
           <button className="btn btn-outline-success" onClick={downloadExcel}>
             Download Excel
           </button>

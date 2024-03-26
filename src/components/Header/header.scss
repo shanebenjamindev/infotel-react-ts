@@ -4,4 +4,7 @@ nav {
   z-index: 9999;
   background-color: var(--light-bg-color);
   box-shadow: black 0px 7px 100px 0px;
+  > a, li {
+    color: var(--theme-color) !important;
+  }
 }
