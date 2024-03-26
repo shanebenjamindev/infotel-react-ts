@@ -38,11 +38,11 @@ function App() {
       return (
         <div className="main">
           {user?.role === "admin" ? (
-            <div className="content d-md-flex">
-              <div className="col-md-2 pl-0">
+            <div className="admin__Container d-md-flex ">
+              <div className="admin__Content col-md-2 pl-0 ">
                 <Sidebar />
               </div>
-              <div className="col-md-10 p-2">
+              <div className="admin__Content col-md-10 p-2">
                 <Outlet />
               </div>
             </div>

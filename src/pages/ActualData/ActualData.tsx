@@ -126,8 +126,8 @@ export default function ActualData() {
   const dataWithGrandTotal = [...dataSource, grandTotal];
 
   return (
-      <div className="sm-flex-column justify-content-center align-items-center">
-        <div>
+      <div className="admin__PageContainer">
+        <div style={{overflowX: "auto"}}>
           <h1 className="content__Title">Actual Data</h1>
           <Table
             columns={columns}

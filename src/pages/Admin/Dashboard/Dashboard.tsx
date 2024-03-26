@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { getUser } from "../../../hooks/userHook";
 import ActualData from "../../ActualData/ActualData";
 import ReservationForecast from "../ReservationForecast/ReservationForecast";
@@ -5,18 +6,55 @@ import "./dashboard.scss";
 
 export default function Dashboard() {
   const user = getUser();
+  const [greeting, setGreeting] = useState("");
+  const [currentTime, setCurrentTime] = useState("");
+
+  useEffect(() => {
+    // Function to get the current time and set the greeting message accordingly
+    function setGreetingMessage() {
+      const date = new Date();
+      const currentHour = date.getHours();
+
+      let greetingMessage;
+      if (currentHour < 12) {
+        greetingMessage = `Good Morning, ${user.fullName}. Hope you have a great day!`;
+      } else if (currentHour < 18) {
+        greetingMessage = `Good afternoon, ${user.fullName}`;
+      } else {
+        greetingMessage = `Good evening, ${user.fullName}. Are you still working? great, hope you take care of your healthy too!`;
+      }
+
+      setGreeting(greetingMessage);
+      setCurrentTime(date.toLocaleTimeString());
+    }
+
+    setGreetingMessage();
+
+    const interval = setInterval(() => {
+      setGreetingMessage();
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [user]);
+
   return (
     <div className="dashboard">
-      <div className="box box4">
+      <div className="box box1">
         {user ? (
-          <h1 className="dashboard__Top ">
-            WELLCOME, <strong> {user.fullName}</strong>
-          </h1>
+          <div>
+            <h1>
+              WELLCOME, <strong> {user.fullName}</strong>
+            </h1>
+            <p>{greeting}</p>
+            <p>Current time: {currentTime}</p>
+          </div>
         ) : null}
-        <ActualData />
       </div>
-      <div className="box box5">
+      <div className="box box2">
         <ReservationForecast />
+      </div>
+      <div className="box box3">
+        <ActualData />
       </div>
     </div>
   );
