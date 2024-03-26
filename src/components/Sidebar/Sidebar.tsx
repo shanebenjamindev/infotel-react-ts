@@ -40,7 +40,7 @@ const Sidebar = () => {
             ))}
           </div>
         ))}
-        <div className="text-center mt-4">
+        <div className="mt-4">
           <button className="btn__Light" onClick={handleLogout}>
             Logout
           </button>

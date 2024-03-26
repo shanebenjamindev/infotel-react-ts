@@ -126,20 +126,16 @@ export default function ActualData() {
   const dataWithGrandTotal = [...dataSource, grandTotal];
 
   return (
-    <section>
-      <div>
-        <div className="section__Content">
-          <h1 className="content__SubTitle">Actual Data</h1>
-
-          <Table
-            columns={columns}
-            dataSource={dataWithGrandTotal}
-            rowKey="property"
-            pagination={false}
-            style={{ overflowX: "scroll", width: "100%" }}
-          />
-        </div>
+    <div className="section__Content">
+      <h1 className="content__SubTitle">Actual Data</h1>
+      <div style={{ overflowX: "auto" }}>
+        <Table
+          columns={columns}
+          dataSource={dataWithGrandTotal}
+          rowKey="property"
+          pagination={false}
+        />
       </div>
-    </section>
+    </div>
   );
 }
