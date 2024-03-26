@@ -36,13 +36,13 @@ const ReservationForecast: React.FC = () => {
           case "3-months":
             const threeMonths = new Date(
               currentDate.getFullYear(),
-              currentDate.getMonth() + 4
+              currentDate.getMonth() + 3
             );
-            return date <= threeMonths;
+            return date < threeMonths;
           case "6-months":
             const sixMonthsLater = new Date(currentDate);
             sixMonthsLater.setMonth(currentDate.getMonth() + 6);
-            return date <= sixMonthsLater;
+            return date < sixMonthsLater;
           default:
             return true;
         }
