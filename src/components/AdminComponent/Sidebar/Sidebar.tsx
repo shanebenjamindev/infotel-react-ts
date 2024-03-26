@@ -1,9 +1,9 @@
 // Sidebar.jsx
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { sidebar } from "../../data";
+import { sidebar } from "../../../data";
 import "./sidebar.scss";
-import { logoutUser } from "../../hooks/userHook";
+import { logoutUser } from "../../../hooks/userHook";
 
 const Sidebar = () => {
   const location = useLocation();
@@ -17,12 +17,15 @@ const Sidebar = () => {
     logoutUser(navigate);
   };
   return (
-    <>
+    <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
       <button className="sidebar-toggle btn__Primary" onClick={toggleSidebar}>
         {isSidebarOpen ? "Close" : "Menu"}
       </button>
+      <div className="">
+        <img src="/images/logo.png" width={"100%"} />
+      </div>
 
-      <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
+      <div>
         {sidebar.map((item) => (
           <div className={`item  `} key={item.id}>
             <span className="title">{item.title}</span>
@@ -40,13 +43,13 @@ const Sidebar = () => {
             ))}
           </div>
         ))}
-        <div className="mt-4">
-          <button className="btn__Light" onClick={handleLogout}>
-            Logout
-          </button>
-        </div>
       </div>
-    </>
+      <div className="text-center m-2">
+        <button className="w-100 btn__Danger outline" onClick={handleLogout}>
+          Logout
+        </button>
+      </div>
+    </div>
   );
 };
 

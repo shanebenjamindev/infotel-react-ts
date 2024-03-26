@@ -51,14 +51,14 @@ export default function Header() {
                 Logout
               </button>
               {user && user.role === "admin" ? (
-                <Link to="/admin" className="btn__Primary">
-                  Go to Admin
+                <Link to="/admin">
+                  <button className="btn__Primary">Go to Admin</button>
                 </Link>
               ) : null}
             </div>
           ) : (
-            <Link className="btn__Primary" to="/login">
-              Login
+            <Link to="/login">
+              <button className="btn__Primary">Login</button>
             </Link>
           )}
         </div>

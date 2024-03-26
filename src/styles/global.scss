@@ -85,8 +85,11 @@ section {
 }
 
 //button
-.btn__Primary {
+button {
   padding: 5px 30px;
+}
+
+.btn__Primary {
   text-align: center;
   border-radius: 4px;
   color: var(--light-text-color);
@@ -102,12 +105,15 @@ section {
 }
 
 .btn__Danger {
-  padding: 5px 30px;
   border-radius: 4px;
   transition: all 0.25s ease;
   background-color: var(--danger-bg-color);
   color: var(--light-text-color);
   border: 1px solid var(--danger-bg-color);
+
+  &.outline {
+    color: white;
+  }
 
   &:hover {
     background-color: var(--light-text-color);

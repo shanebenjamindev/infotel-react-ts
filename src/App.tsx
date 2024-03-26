@@ -9,7 +9,7 @@ import { Suspense } from "react";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Login from "./pages/Login/Login";
-import Sidebar from "./components/Sidebar/Sidebar";
+import Sidebar from "./components/AdminComponent/Sidebar/Sidebar";
 import ErrorPage from "./pages/Error/Error";
 import "./styles/global.scss";
 import ActualData from "./components/AdminComponent/ActualData/ActualData";

@@ -1,19 +1,20 @@
 // sidebar.scss
 .sidebar {
   background-color: var(--theme-color);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  top: 0;
-  left: 0;
   transition: width 0.5s;
-
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 50px 0px;
+  height: 100%;
+  
   @media (max-width: 768px) {
     width: 0;
     position: fixed;
     overflow: hidden;
     height: auto;
     bottom: 0;
+    top: 0;
     z-index: 9998;
   }
 
@@ -21,7 +22,7 @@
     z-index: 9999;
 
     .title {
-      padding: 10px;
+      padding: 20px;
       font-size: 12px;
       font-weight: 200;
       color: var(--fade-text-color);
@@ -29,25 +30,23 @@
 
     .listItem {
       padding: 20px;
+      margin: 10px;
       display: flex;
       align-items: center;
       color: var(--light-text-color);
       gap: 10px;
       transition: all 0.25s ease;
-      
+
       &:hover {
-        box-shadow: black -10px 7px 19px 0px;
         color: var(--light-text-color);
         z-index: 2;
-        padding-left: 50px;
-        margin: 10px;
+        box-shadow: black 0px 0px 10px 0px;
       }
 
       &.active {
         z-index: 1;
         color: var(--light-text-color);
-        padding-left: 60px;
-        box-shadow: black -10px 7px 10px 0px;
+        box-shadow: black 0px 1px 10px 0px;
       }
     }
   }
