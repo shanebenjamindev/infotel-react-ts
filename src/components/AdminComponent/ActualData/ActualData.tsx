@@ -129,7 +129,7 @@ export default function ActualData() {
     <section className="">
       <div className="section__Content">
         <h1 className="content__SubTitle">Actual Data</h1>
-        <div style={{ overflowX: "scroll", width: "100%" }}>
+        <div style={{ overflowX: "auto" }}>
           <Table
             columns={columns}
             dataSource={dataWithGrandTotal}
