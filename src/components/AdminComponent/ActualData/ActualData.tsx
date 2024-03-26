@@ -1,4 +1,4 @@
-import { HotelData } from "../../data";
+import { HotelData } from "../../../data";
 import { Table } from "antd";
 
 export default function ActualData() {
@@ -24,7 +24,7 @@ export default function ActualData() {
     },
     {
       title: "F&B Revenue",
-      dataIndex: "F&BRevenue",
+      dataIndex: "FBRevenue",
       key: "F&BRevenue",
     },
     {
@@ -126,17 +126,17 @@ export default function ActualData() {
   const dataWithGrandTotal = [...dataSource, grandTotal];
 
   return (
-      <div className="admin__PageContainer">
-        <div style={{overflowX: "auto"}}>
-          <h1 className="content__Title">Actual Data</h1>
-          <Table
-            columns={columns}
-            dataSource={dataWithGrandTotal}
-            rowKey="property"
-            scroll={{ x: true }}
-            pagination={false} 
-          />
+    <section className="d-flex align-items-center">
+      <div style={{ overflowX: "auto" }}>
+        <h1 className="content__Title">Actual Data</h1>
+        <Table
+          columns={columns}
+          dataSource={dataWithGrandTotal}
+          rowKey="property"
+          scroll={{ x: true }}
+          pagination={false}
+        />
       </div>
-    </div>
+    </section>
   );
 }

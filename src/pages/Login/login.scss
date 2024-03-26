@@ -1,23 +1,30 @@
 .login__Container {
-  min-height: 85vh;
+  height: 100dvh;
+  display: flex;
   justify-content: center;
   align-items: center;
-}
-.home__LoginForm {
-  animation: fadeUp 1s ease forwards;
+  z-index: 100;
 
-  form {
-    background-color: transparent;
-  }
-}
+  .home__LoginForm {
+    min-width: 30%;
+    background-image: linear-gradient(white, transparent);
+    box-shadow: grey 0px 0px 190px 0px;
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+    animation: fadeUp 1s ease forwards;
+
+    form {
+      background-color: transparent;
+    }
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }

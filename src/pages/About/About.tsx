@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import "./about.scss"; 
+import "./about.scss";
 
 const About = () => {
   return (
-    <section className="">
+    <section className="about">
       <div className="p-5">
-        <div className="container about-container ">
+        <div className="container about__Content">
           <h1>About Booking Application</h1>
           <p>
             Welcome to the Room Booking Application! Our platform provides an
@@ -13,7 +13,7 @@ const About = () => {
             it's for meetings, events, or any other gatherings.
           </p>
           <div className="about-card">
-            <h2 >Features</h2>
+            <h2>Features</h2>
             <ul>
               <li className="content__Title">
                 User Registration and Authentication: Securely register and log

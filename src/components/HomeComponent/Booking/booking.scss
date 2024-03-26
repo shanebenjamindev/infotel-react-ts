@@ -1,8 +1,8 @@
 .booking__Container {
   position: relative;
+  z-index: 999;
 
-  z-index: 9998;
   .booking__Contain {
-    transform: translateY(-100px);
+    transform: translateY(-120px);
   }
 }

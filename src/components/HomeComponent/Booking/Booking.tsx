@@ -20,7 +20,7 @@ export default function Booking() {
     );
   };
   return (
-    <div className="booking__Container">
+    <section className="booking__Container">
       <div className="booking__Contain">
         <div className="w-75 m-auto">
           <h1 className="section__Title">Hotel Booking</h1>
@@ -74,6 +74,6 @@ export default function Booking() {
           </form>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

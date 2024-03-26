@@ -66,47 +66,43 @@ export default function Login() {
   };
 
   return (
-    <section className="bg px-3">
-      <div className="overlay__Inner"></div>
-      <div className="d-md-flex login__Container d-md-flex">
-        
-        <div className="rounded w-50 home__LoginForm">
-          <div className="card-body text-center p-md-5 mx-md-4">
-            <div className="text-center">
-              <h2>Login</h2>
-            </div>
-            <form className="my-5">
-              <div className="form-group">
-                <input
-                  type="email"
-                  id="form2Example11"
-                  className="form-control"
-                  placeholder="Enter username"
-                  value={username}
-                  onChange={handleUsernameChange}
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  type="password"
-                  id="form2Example22"
-                  className="form-control"
-                  placeholder="Password"
-                  value={password}
-                  onChange={handlePasswordChange}
-                />
-              </div>
-              {error && <div className="text-danger mb-3">{error}</div>}
-              <div className="text-center d-flex pt-1 mb-5 pb-1">
-                <a className="text-muted col-6" href="#!">
-                  Forgot password?
-                </a>
-                <button className="btn__Primary col-6" onClick={handleLogin}>
-                  Log in
-                </button>
-              </div>
-            </form>
+    <section className="bg">
+      <div className="login__Container">
+        <div className="home__LoginForm py-5 px-lg-5 px-2 rounded">
+          <div className="text-center">
+            <h2>Login</h2>
           </div>
+          <form className="my-5">
+            <div className="form-group">
+              <input
+                type="email"
+                id="form2Example11"
+                className="form-control"
+                placeholder="Enter username"
+                value={username}
+                onChange={handleUsernameChange}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="password"
+                id="form2Example22"
+                className="form-control"
+                placeholder="Password"
+                value={password}
+                onChange={handlePasswordChange}
+              />
+            </div>
+            {error && <div className="text-danger mb-3">{error}</div>}
+            <div className="text-center d-flex pt-1 mb-5 pb-1">
+              <a className="text-muted col-6" href="#!">
+                Forgot password?
+              </a>
+              <button className="btn__Primary col-6" onClick={handleLogin}>
+                Log in
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </section>

@@ -12,11 +12,11 @@ import Login from "./pages/Login/Login";
 import Sidebar from "./components/Sidebar/Sidebar";
 import ErrorPage from "./pages/Error/Error";
 import "./styles/global.scss";
-import Dashboard from "./pages/Admin/Dashboard/Dashboard";
-import ActualData from "./pages/ActualData/ActualData";
-import ReservationForecast from "./pages/Admin/ReservationForecast/ReservationForecast";
+import ActualData from "./components/AdminComponent/ActualData/ActualData";
+import ReservationForecast from "./components/AdminComponent/ReservationForecast/ReservationForecast";
 import { getUser } from "./hooks/userHook";
 import About from "./pages/About/About";
+import Admin from "./pages/Admin/Admin";
 
 function App() {
   const LayoutHome = () => {
@@ -74,7 +74,7 @@ function App() {
       path: "admin",
       element: <LayoutAdmin />,
       children: [
-        { path: "", element: <Dashboard /> },
+        { path: "", element: <Admin /> },
         { path: "actualData", element: <ActualData /> },
         { path: "reservationForecast", element: <ReservationForecast /> },
         {

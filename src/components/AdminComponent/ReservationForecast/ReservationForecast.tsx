@@ -307,43 +307,42 @@ const ReservationForecast: React.FC = () => {
   };
 
   return (
-    <div className="h-100 d-flex flex-column justify-content-center">
-      <h2 className="content__Title">Reservation Forecast</h2>
-      <div
-        className="d-flex align-items-center justify-content-end"
-        style={{ gap: "10px" }}
-      >
-        <span>Select period:</span>
-        <select
-          className="reservation__Select my-3"
-          value={selectedPeriod}
-          onChange={handlePeriodChange}
-        >
-          <option value="this-month">This Month</option>
-          <option value="3-months">3 Months</option>
-          <option value="6-months">6 Months</option>
-        </select>
+    <section className="reservation">
+      <div className="d-md-flex align-items-center justify-content-between">
+        <h2 className="content__Title">Reservation Forecast</h2>
+        <div>
+          <span className="mr-2">Select period:</span>
+          <select
+            className="reservation__Select my-3"
+            value={selectedPeriod}
+            onChange={handlePeriodChange}
+          >
+            <option value="this-month">This Month</option>
+            <option value="3-months">3 Months</option>
+            <option value="6-months">6 Months</option>
+          </select>
+        </div>
       </div>
       <div
         style={{
           overflow: "scroll",
           width: "100%",
-          height: "50%",
           border: " 1px dashed #aaa",
         }}
       >
         <svg ref={svgRef} width="100%" height="100%"></svg>
       </div>
-      <div className=" mt-4">
-        <div className="d-flex justify-content-between align-items-center">
+      <div className="mt-5">
+        <div className=" d-flex align-items-center justify-content-between">
           <h2 className="content__Title">Period Details</h2>
           <button className="btn btn-outline-success" onClick={downloadExcel}>
             Download Excel
           </button>
         </div>
+
         <NestedTable data={chartData} />
       </div>
-    </div>
+    </section>
   );
 };
 
@@ -371,10 +370,7 @@ const NestedTable: React.FC<{ data: any[] }> = ({ data }) => {
     },
   ];
   return (
-    <div
-      className="period__Detail"
-      style={{ overflowX: "auto", marginTop: "20px" }}
-    >
+    <div className="period__Detail" style={{ overflowX: "auto" }}>
       <Table
         columns={columns}
         dataSource={data}

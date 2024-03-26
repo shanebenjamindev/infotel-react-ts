@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getUser } from "../../../hooks/userHook";
-import ActualData from "../../ActualData/ActualData";
+import ActualData from "../ActualData/ActualData";
 import ReservationForecast from "../ReservationForecast/ReservationForecast";
 import "./dashboard.scss";
 
@@ -38,13 +38,13 @@ export default function Dashboard() {
   }, [user]);
 
   return (
-    <div className="dashboard">
+    <section className="dashboard">
       <div className="box box1">
         {user ? (
           <div>
-            <h1>
+            <h2 className="section__DarkTitle">
               WELLCOME, <strong> {user.fullName}</strong>
-            </h1>
+            </h2>
             <p>{greeting}</p>
             <p>Current time: {currentTime}</p>
           </div>
@@ -56,7 +56,7 @@ export default function Dashboard() {
       <div className="box box3">
         <ActualData />
       </div>
-    </div>
+    </section>
   );
 }
 
