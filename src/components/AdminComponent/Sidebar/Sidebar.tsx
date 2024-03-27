@@ -1,5 +1,4 @@
 // Sidebar.jsx
-import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { sidebar } from "../../../data";
 import "./sidebar.scss";
@@ -7,20 +6,13 @@ import { logoutUser } from "../../../hooks/userHook";
 
 const Sidebar = () => {
   const location = useLocation();
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
   const navigate = useNavigate();
   const handleLogout = () => {
     logoutUser(navigate);
   };
   return (
-    <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
-      <button className="sidebar-toggle btn__Primary" onClick={toggleSidebar}>
-        {isSidebarOpen ? "Close" : "Menu"}
-      </button>
+    <div>
       <div className="">
         <img src="/images/logo.png" width={"100%"} />
       </div>

@@ -249,7 +249,7 @@ const ReservationForecast: React.FC = () => {
         tooltip.style("opacity", 0);
       })
       .on("mousemove", function (event) {
-        const [xMouse] = d3.pointer(event);
+        const [xMouse, yMouse] = d3.pointer(event);
 
         const date = x.invert(xMouse);
 
@@ -283,7 +283,7 @@ const ReservationForecast: React.FC = () => {
               `
           )
           .style("left", event.pageX - 200 + "px")
-          .style("top", event.pageY + 28 + "px");
+          .style("top", yMouse - 100 + "px");
       });
   };
 
@@ -308,7 +308,7 @@ const ReservationForecast: React.FC = () => {
 
   return (
     <section className="reservation">
-      <div className="section__Content d-md-flex align-items-center justify-content-between">
+      <div className="section__Content d-md-flex align-items-center justify-content-between mb-5">
         <h2 className="content__SubTitle">Reservation Forecast</h2>
         <div>
           <span className="mr-2">Select period:</span>
@@ -370,11 +370,10 @@ const NestedTable: React.FC<{ data: any[] }> = ({ data }) => {
     },
   ];
   return (
-    <div className="period__Detail" style={{ overflowX: "auto" }}>
+    <div className="admin__Overflow" style={{ overflowX: "auto" }}>
       <Table
         columns={columns}
         dataSource={data}
-        pagination={false}
         rowKey={(outlet) => outlet.Date}
       />
     </div>

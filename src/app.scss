@@ -1,0 +1,76 @@
+// sidebar.scss
+
+.sidebar.open {
+  width: 80%;
+}
+
+.sidebar .nav-link {
+  z-index: 9999;
+  display: block;
+}
+
+.sidebar-toggle {
+  display: none;
+  position: absolute;
+  z-index: 1100;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .sidebar-toggle {
+    z-index: 9999;
+    top: 3px;
+    left: 3px;
+    position: fixed;
+    display: block;
+  }
+}
+
+.sidebar {
+  background-color: var(--theme-color);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 50px 0px;
+  transition: all 1s ease;
+  height: 100%;
+
+  @media (max-width: 768px) {
+    width: 0%;
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    z-index: 9998;
+  }
+
+  .item {
+
+    .title {
+      padding: 20px;
+      font-size: 12px;
+      font-weight: 200;
+      color: var(--fade-text-color);
+    }
+
+    .listItem {
+      padding: 20px;
+      margin: 10px;
+      display: flex;
+      align-items: center;
+      color: var(--light-text-color);
+      gap: 10px;
+      transition: all 0.25s ease;
+
+      &:hover {
+        color: var(--light-text-color);
+        z-index: 2;
+        box-shadow: black 0px 0px 10px 0px;
+      }
+
+      &.active {
+        z-index: 1;
+        color: var(--light-text-color);
+        box-shadow: black 0px 1px 10px 0px;
+      }
+    }
+  }
+}

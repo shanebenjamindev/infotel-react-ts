@@ -1,6 +1,5 @@
 import { HotelData } from "../../../data";
 import { Table } from "antd";
-
 export default function ActualData() {
   const columns = [
     {
@@ -126,17 +125,14 @@ export default function ActualData() {
   const dataWithGrandTotal = [...dataSource, grandTotal];
 
   return (
-    <section className="">
+    <section>
       <div className="section__Content">
         <h1 className="content__SubTitle">Actual Data</h1>
-        <div
-          style={{ height: "100dvh", overflowX: "auto", overflowY: "scroll" }}
-        >
+        <div className="" style={{ maxWidth: "100%", overflowX: "scroll" }}>
           <Table
             columns={columns}
             dataSource={dataWithGrandTotal}
-            rowKey="property"
-            pagination={false}
+            rowKey="id"
           />
         </div>
       </div>

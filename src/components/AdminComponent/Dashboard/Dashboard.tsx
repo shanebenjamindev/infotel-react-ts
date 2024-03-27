@@ -10,7 +10,6 @@ export default function Dashboard() {
   const [currentTime, setCurrentTime] = useState("");
 
   useEffect(() => {
-    // Function to get the current time and set the greeting message accordingly
     function setGreetingMessage() {
       const date = new Date();
       const currentHour = date.getHours();

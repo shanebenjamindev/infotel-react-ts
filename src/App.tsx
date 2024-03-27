@@ -5,7 +5,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from "./pages/Home/Home";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Login from "./pages/Login/Login";
@@ -17,8 +17,14 @@ import ReservationForecast from "./components/AdminComponent/ReservationForecast
 import { getUser } from "./hooks/userHook";
 import About from "./pages/About/About";
 import Admin from "./pages/Admin/Admin";
+import "./app.scss";
+import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 
 function App() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
   const LayoutHome = () => {
     return (
       <div className="main">
@@ -36,11 +42,24 @@ function App() {
 
     if (user) {
       return (
-        <div className="main">
+        <div className="admin container-fluid p-0">
           {user?.role === "admin" ? (
-            <div className="admin__Container d-md-flex ">
-              <div className="admin__Content col-md-2 pl-0 ">
-                <Sidebar />
+            <div className="d-md-flex admin__Container ">
+              <div className="col-md-2 col-sm-0 pl-0">
+                <button
+                  className="sidebar-toggle px-3 btn__Primary"
+                  onClick={toggleSidebar}
+                >
+                  {isSidebarOpen ? (
+                    <MenuFoldOutlined />
+                  ) : (
+                    <MenuUnfoldOutlined />
+                  )}
+                </button>
+
+                <div className={`sidebar pl-0 ${isSidebarOpen ? "open" : ""}`}>
+                  <Sidebar />
+                </div>
               </div>
               <div className="admin__Content col-md-10 p-2">
                 <Outlet />

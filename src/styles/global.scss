@@ -19,14 +19,23 @@ body {
 
 //layout
 .main {
-  height: 100dvh;
   font-size: var(--font-size-default);
 }
 
-.admin__Container {
-  min-height: 100%;
-  .admin__Content {
-    display: grid;
+.admin {
+  .admin__Container {
+    height: 100dvh;
+
+    .admin__Content {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      overflow-y: scroll;
+    }
+
+    .admin__Overflow {
+      overflow: auto;
+    }
   }
 }
 
