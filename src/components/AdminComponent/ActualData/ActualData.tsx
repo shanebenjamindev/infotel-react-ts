@@ -3,10 +3,6 @@ import { Table } from "antd";
 export default function ActualData() {
   const columns = [
     {
-      title: "ID",
-      dataIndex: "id",
-    },
-    {
       title: "Property",
       dataIndex: "property",
       key: "property",
@@ -128,9 +124,10 @@ export default function ActualData() {
     <section>
       <div className="section__Content">
         <h1 className="content__SubTitle">Actual Data</h1>
-        <div className="" style={{ maxWidth: "100%", overflowX: "scroll" }}>
+        <div className="" style={{ overflowX: "auto" }}>
           <Table
             columns={columns}
+            scroll={{ x: 1500 }}
             dataSource={dataWithGrandTotal}
             rowKey="id"
           />

@@ -370,10 +370,11 @@ const NestedTable: React.FC<{ data: any[] }> = ({ data }) => {
     },
   ];
   return (
-    <div className="admin__Overflow" style={{ overflowX: "auto" }}>
+    <div className="admin__Overflow">
       <Table
         columns={columns}
         dataSource={data}
+        scroll={{ x: 500 }}
         rowKey={(outlet) => outlet.Date}
       />
     </div>
